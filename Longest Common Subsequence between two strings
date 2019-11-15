@@ -1,0 +1,63 @@
+
+
+s2="ataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+s1="atab"
+
+def findsubseq(s1,s2):
+    s3=""
+    temp=""
+    longest=findlongest(s1,s2)
+
+    if longest ==s1:
+        for i in longest:
+            temp=s2
+            for j in s2:
+                
+                if i==j:
+                    s3 += i
+                    longest = longest.replace(i,'',1)
+                    s2=s2.replace(j,'',1)
+                    break
+                    
+                if i!=j:
+                    
+                    s2=s2.replace(j,'',1)
+                    
+
+                if s2=="":
+                    s2=temp
+
+    elif longest ==s2:
+
+        for i in longest:
+            temp=s1
+            for j in s1:
+                
+                if i==j:
+                    s3 += i
+                    longest = longest.replace(i,'',1)
+                    s1=s1.replace(j,'',1)
+                    break
+                    
+                if i!=j:
+                    
+                    s1=s1.replace(j,'',1)
+
+                if s1=="":
+                    s1=temp
+        
+
+                
+
+    return s3
+
+
+
+def findlongest(s1,s2):
+    if len(s1)>=len(s2):
+        return s1
+    else:
+        return s2
+
+print(findsubseq(s1,s2))
+
